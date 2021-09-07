@@ -5,13 +5,17 @@ def bt_click():
     if str(peso.get()).isnumeric() and str(altura.get()).isnumeric():
         p = float(peso.get())
         a = float(altura.get())
-
-        label_IMC["text"] = p / a**2
+        if a != 0:
+            label_IMC["text"] = p / a**2
+        else:
+            label_IMC["text"] = "A altura deve ser maior que zero!"
     elif "." in peso.get() or altura.get():
         p = float(peso.get())
         a = float(altura.get())
-
-        label_IMC["text"] = p / a ** 2
+        if a != 0:
+            label_IMC["text"] = p / a ** 2
+        else:
+            label_IMC["text"] = "Altura deve ser maior que zero!"
     else:
         label_IMC["text"] = "Valores inválidos!"
 
