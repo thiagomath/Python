@@ -1,14 +1,37 @@
-numero = int(input('Digite um número para ver sua tabuada: '))
-print('-'*10)
-print(f'{numero} x 0 = {numero * 0}')
-print(f'{numero} x 1 = {numero * 1}')
-print(f'{numero} x 2 = {numero * 2}')
-print(f'{numero} x 3 = {numero * 3}')
-print(f'{numero} x 4 = {numero * 4}')
-print(f'{numero} x 5 = {numero * 5}')
-print(f'{numero} x 6 = {numero * 6}')
-print(f'{numero} x 7 = {numero * 7}')
-print(f'{numero} x 8 = {numero * 8}')
-print(f'{numero} x 9 = {numero * 9}')
-print(f'{numero} x 10 = {numero * 10}')
-print('-'*10)
+from tkinter import *
+
+
+def tabuada():
+    if str(num.get()).isnumeric():
+        n = int(num.get())
+        label_tabuada["text"] = f'''{0} X {n} = {0 * n}
+{1} X {n} = {1 * n}
+{2} X {n} = {2 * n}
+{3} X {n} = {3 * n}
+{4} X {n} = {4 * n}
+{5} X {n} = {5 * n}
+{6} X {n} = {6 * n}
+{7} X {n} = {7 * n}
+{8} X {n} = {8 * n}
+{9} X {n} = {9 * n}
+{10} X {n} = {10 * n}'''
+    else:
+        label_tabuada["text"] = 'ERRO!'
+
+
+# Janela
+janela = Tk()
+janela.title("Tabuada")
+janela.geometry("200x260")
+# Variáveis
+label_num = Label(janela, text="Digite um valor: ")
+label_num.place(x=20, y=20)
+num = Entry(janela, width=8)
+num.place(x=120, y=20)
+# Botão
+bt_tabuada = Button(janela, text="VER TABUADA", width=15, bg="green", command=tabuada)
+bt_tabuada.place(x=40, y=50)
+# Resposta
+label_tabuada = Label(janela, text=" ")
+label_tabuada.place(x=60, y=80)
+janela.mainloop()
